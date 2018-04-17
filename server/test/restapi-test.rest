@@ -1,0 +1,79 @@
+
+PUT http://localhost:3000/api/weightage/4554 HTTP/1.1
+content-type: application/json
+
+{
+    "delta0": 0.8,
+    "delta1": 0.15,
+    "delta2": 0.05
+}
+
+DELETE http://localhost:3000/api/category/Projects HTTP/1.1
+
+GET http://localhost:3000/api/weightage/4554 HTTP/1.1
+
+GET http://localhost:3000/api/weg/4554 HTTP/1.1
+
+GET http://localhost:3000/api/fte/4554 HTTP/1.1
+
+GET http://localhost:3000/api/ba/4554 HTTP/1.1
+
+PUT http://localhost:3000/api/weg/4554 HTTP/1.1
+content-type: application/json
+
+[
+    {"ba":"All", "yeardelta":1, "weg":1},
+    {"ba":"CPS", "yeardelta":1, "weg":2},
+    {"ba":"MS", "yeardelta":1,  "weg":3},
+    {"ba":"IT", "yeardelta":1,  "weg":4},
+    {"ba":"POC", "yeardelta":1, "weg":5},
+    {"ba":"Others", "yeardelta":1, "weg":6},
+    {"ba":"All", "yeardelta":2, "weg":11},
+    {"ba":"CPS", "yeardelta":2, "weg":12},
+    {"ba":"MS", "yeardelta":2,  "weg":13},
+    {"ba":"IT", "yeardelta":2,  "weg":14},
+    {"ba":"POC", "yeardelta":2, "weg":15},
+    {"ba":"Others", "yeardelta":2, "weg":16},
+    {"ba":"All", "yeardelta":3, "weg":21},
+    {"ba":"CPS", "yeardelta":3, "weg":22},
+    {"ba":"MS", "yeardelta":3,  "weg":23},
+    {"ba":"IT", "yeardelta":3,  "weg":24},
+    {"ba":"POC", "yeardelta":3, "weg":25},
+    {"ba":"Others", "yeardelta":3, "weg":26}
+]
+
+PUT http://localhost:3000/api/fte/4554 HTTP/1.1
+content-type: application/json
+
+[
+    {"name":"All", "yearDelta":1, "fte":100},
+    {"name":"CPS", "yearDelta":1, "fte":22},
+    {"name":"MS", "yearDelta":1,  "fte":30},
+    {"name":"IT", "yearDelta":1,  "fte":40},
+    {"name":"POC", "yearDelta":1, "fte":50},
+    {"name":"Others", "yearDelta":1, "fte":6}
+]
+
+DELETE  http://localhost:3000/api/configData/4554 HTTP/1.1
+
+PUT  http://localhost:3000/init/configData/4554 HTTP/1.1
+
+PUT http://localhost:3000/api/baf/4554 HTTP/1.1
+content-type: application/json
+
+[
+          { "instrumentfamily": "Blood Gas/ Electrolytes", "ba": "CPS" },
+          { "instrumentfamily": "ClinChem", "ba": "CPS" },
+          { "instrumentfamily": "Coagulation", "ba": "CPS" },
+          { "instrumentfamily": "Immunology", "ba": "CPS" },
+          { "instrumentfamily": "Lab Integration", "ba": "CPS" },
+          { "instrumentfamily": "Urinalysis", "ba": "CPS" },
+          { "instrumentfamily": "Histology", "ba": "MS" },
+          { "instrumentfamily": "Molecular Diagnostics", "ba": "MS" },
+          { "instrumentfamily": "RLS Custom Biotech System", "ba": "MS" },
+          { "instrumentfamily": "RLS qPCR & NAP System", "ba": "MS" },
+          { "instrumentfamily": "Waste Bin", "ba": "MS" },
+          { "instrumentfamily": "Licensed IT Products", "ba": "IT" },
+          { "instrumentfamily": "Laboratory Integration", "ba": "IT" },
+          { "instrumentfamily": "Point of Care", "ba": "POC" }
+]
