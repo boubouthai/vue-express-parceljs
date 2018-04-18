@@ -1,4 +1,6 @@
-require('dotenv').config()
+const yenv = require('yenv')
+
+
 
 module.exports = {
     tableau: {

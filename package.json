@@ -4,26 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel client/index.html",
-    "build": "rimraf dist && npm run build-client && npm run build-server",
+    "dev": "concurrently --names \"Server,Client\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run dev-server\" \"npm run dev-client\"",
+    "dev-client":"cross-env NODE_ENV=development && parcel client/index.html",
+    "dev-server":"cross-env NODE_ENV=development && nodemon server/entry-server.js",
+    "build": "cross-env NODE_ENV=production rimraf dist && npm run build-client && npm run build-server",
     "build-client": "parcel build client/index.html -d dist/client --public-url /dist",
     "build-server": "parcel build server/entry-server.js -d dist/server --public-url /dist --target=node",
-    "start": "node dist/server/entry-server"
+    "start": "cross-env NODE_ENV=production node dist/server/entry-server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
-    "dotenv": "^5.0.1",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.4",
     "express": "^4.16.2",
     "lodash": "^4.17.5",
     "moment": "^2.22.1",
     "mongoose": "^5.0.12",
+    "nodemon": "^1.17.3",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16",
-    "vuetify": "^1.0.11"
+    "vuetify": "^1.0.11",
+    "yenv": "^2.1.0"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^1.0.0",

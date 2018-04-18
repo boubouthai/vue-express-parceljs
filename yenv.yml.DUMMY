@@ -1,0 +1,29 @@
+
+base:
+  APP_NAME: 'BITA Export'
+  APP_VERSION: 0.1
+  SERVER_PORT: 3000
+
+#Database entry
+db:
+  DB_PORT: 5432
+
+#Express Server
+
+development:
+  ~compose: [base, db]
+  SERVER_HOST: 'localhost'
+  SERVER_CORS: true
+  DB_USER: 'MYDBUSER'
+  DB_HOST: 'DBHOST'
+  DB_DATABASE: 'DBDATABASE'
+  DB_PWD: 'DBPWD'
+
+production:
+  ~compose: [base, db]
+  SERVER_HOST: 'localhost'
+  SERVER_CORS: false
+  DB_USER: 'MYDBUSER'
+  DB_HOST: 'DBHOST'
+  DB_DATABASE: 'DBDATABASE'
+  DB_PWD: 'DBPWD'
